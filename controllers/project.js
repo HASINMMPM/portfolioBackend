@@ -2,7 +2,7 @@ import { cloudinaryInstance } from "../connecters/cloudinary.js";
 import Project from "../models/projectModel.js";
 
 // add  a project
-export const addProject = async (req, res) => {
+ const addProject = async (req, res) => {
   console.log("try to add a project");
   try {
     if (!req.file) {
@@ -28,3 +28,19 @@ export const addProject = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// get all projects
+
+ const getAllProjects = async (req, res) => {
+  try {
+    const projects = await Project.find({});
+    res.json(projects);
+  } catch (error) {
+    console.log("error: " + error);
+    res.status(500).json({ message: error.message });
+  }
+};
+export {
+  addProject,
+  getAllProjects,
+}
