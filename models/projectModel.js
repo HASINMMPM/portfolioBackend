@@ -16,6 +16,9 @@ const projectSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  category:{
+    type: String,
+  },
   liveUrl: {
     type: String,
     required: true,
